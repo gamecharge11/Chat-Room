@@ -1,0 +1,10 @@
+<?php 
+    $con = mysqli_connect("localhost","root","","chat_room");
+    $uid = $_COOKIE["uid"];
+    
+    $friends = mysqli_query($con,"SELECT * FROM users WHERE uid = '$uid'");
+    $friends = $friends -> fetch_assoc();
+    $friends = $friends['friends'];
+
+    echo $friends;
+?>
